@@ -1,6 +1,6 @@
-var input = document.querySelector("#display");
-var operador = "";
-var parar = false;
+let input = document.querySelector("#display");
+let operador = "";
+let parar = false;
 
 function limpar() {
   input.value = "";
@@ -60,15 +60,15 @@ function total() {
         break;
 
       case "-":
-        input.value = numeros[0] - numeros[1];
+        input.value = Number(numeros[0]) - Number(numeros[1]);
         break;
 
       case "x":
-        input.value = numeros[0] * numeros[1];
+        input.value = Number(numeros[0]) * Number(numeros[1]);
         break;
 
       case "/":
-        input.value = numeros[0] / numeros[1];
+        input.value = Number(numeros[0]) / Number(numeros[1]);
         break;
     }
 
