@@ -1,77 +1,23 @@
-let input = document.querySelector("#display");
-let operador = "";
-let parar = false;
-
-function limpar() {
-  input.value = "";
-  document.querySelector("#history").innerHTML = "";
-  operador = ""
+/*função inserir numero na tela de resultado*/
+function inserir(num){
+  document.querySelector(".tela").innerHTML += num; /*função que vai inserir o número, parâmetro num, selecionar tela para manipular e devolver o num. Uso do mais igual para concatenar*/
+} 
+/*função limpar tela de resultado*/
+function limpar(){
+  document.querySelector(".tela").innerHTML = ""; /*Quando acionar a função vai apresentar nada para tela de resultado*/
 }
-
-function add_numero(string) {
-  if (!parar) {
-    if (string === '.' && input.value.indexOf(".") === -1 || string !== '.') {
-      input.value = input.value + string;
-      history.value = input.value;
-    }
-  } else {
-    if (string === '.' && input.value.indexOf(".") === -1 || string !== '.') {
-      input.value = "";
-      parar = false;
-      document.querySelector("#history").innerHTML = "";
-      operador = "";
-
-      input.value = input.value + string;
-    }
-  }
+/*função apagar numero a direita na tela de resultado*/
+function apagar(){
+ let tela = document.querySelector(".tela").innerHTML;
+ document.querySelector(".tela").innerHTML = tela.substring(0, tela.length -1); /*let tela vai guardar a .tela, depois document, buscar a .tela e passar o comando substring que vai extrair uma parte de uma string, e apagar 1 por vez*/
 }
-
-function add_operador(op) {
-  if (input.value == "") {
-    input.value = "0";
+function calcular(){
+  let tela = document.querySelector(".tela").innerHTML;
+  document.querySelector('.tela').innerHTML = eval(tela) /*eval analisa a string fornecida e executa o código JavaScript contido nela,*/
+  if(tela){
+      document.querySelector('.tela').innerHTML = eval(tela) /*if, else para executar comando ou não*/
   }
-
-  if (operador == "") {
-    operador = op;
-    input.value = input.value + op;
-  } else {
-    total()
-    input.value = input.value + op;
-    operador = op;
-    parar=false;
-  }
-}
-
-function total() {
-  if (!parar) {
-    numeros = input.value.split(operador);
-
-    if (numeros[1] == "") {
-      input.value = input.value + '0';
-      numeros[1] = 0;
-
-    }
-
-    document.querySelector("#history").innerHTML = input.value;
-
-    switch (operador) {
-      case "+":
-        input.value = Number(numeros[0]) + Number(numeros[1]);
-        break;
-
-      case "-":
-        input.value = Number(numeros[0]) - Number(numeros[1]);
-        break;
-
-      case "x":
-        input.value = Number(numeros[0]) * Number(numeros[1]);
-        break;
-
-      case "/":
-        input.value = Number(numeros[0]) / Number(numeros[1]);
-        break;
-    }
-
-    parar = true;
+  else{
+      document.querySelector(".tela").innerHTML = "Erro"
   }
 }
