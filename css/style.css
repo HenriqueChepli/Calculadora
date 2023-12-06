@@ -12,7 +12,7 @@ html {
 }
 
 body {
-  background-color: black;
+  background-color: #222222;
   height: inherit;
   display: flex;
   justify-content: center;
@@ -34,7 +34,7 @@ body {
   font-size: 58px;
   text-align: right ;
   width: 397px;
-  border-radius: 30px;
+  border-radius: 20px;
 }
 
 tr {
@@ -50,17 +50,19 @@ td button {
   font-size: 35px;
   padding: 15px 20px;
   width: 70px;
-  border-radius: 100%;
+  border-radius: 15px;
   cursor: pointer;
   margin: 5px;
+  transition: .25s;
 }
 
 td button:hover {
-  background-color: rgb(37, 37, 37);
+  transition: all .25s ease-in-out;
+  transform: scale(1.05);
 }
 
 .especial{
-  background-color: blueviolet;
+  background-color: #e91e63;
 }
 .especial1 {
   background-color: white;
@@ -70,6 +72,6 @@ td button:hover {
 .igual {
   width: 300px;
   height: 70px;
-  border-radius: 40vh;
-  background-color: blueviolet;
+  border-radius: 20px;
+  background-color: #e91e63;
 }
